@@ -1,0 +1,76 @@
+/* THEME: anime — 奶油纸底 + 墨线描边 + 赛璐璐硬阴影 + 贴纸徽章 + 圆体手写字。
+   目标：彻底摆脱"产品后台截图"的真实感，像手账/动画分镜里撕下来的一页。
+   只改视觉属性；布局规则一律由 cover-template.html 的骨架层决定。 */
+:root{
+  --paper:#fff6e3;
+  --ink:#241f2b;
+  --text:#2c2634;
+  --muted:#7d7285;
+  --muted-2:#a2949f;
+  --daily:#ff7a59;
+  --weekly:#3fa9f5;
+  --monthly:#a97bff;
+  --gold:#ffc93c;
+  --silver:#b9c3d6;
+  --bronze:#f0a35e;
+  --hl:#ffe27a;
+}
+body{
+  font-family:"Comic Sans MS","幼圆","YouYuan","Yuanti SC","Microsoft YaHei","PingFang SC",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 16% 10%, rgba(255,201,60,.30), transparent 40%),
+    radial-gradient(circle at 88% 86%, rgba(63,169,245,.24), transparent 44%),
+    radial-gradient(circle at 78% 6%, rgba(255,122,89,.18), transparent 38%),
+    repeating-radial-gradient(circle at 0 0, rgba(36,31,43,.05) 0 1.5px, transparent 1.5px 9px),
+    linear-gradient(158deg,#fffaf0 0%,var(--paper) 46%,#ffefd2 100%);
+}
+.decor{opacity:.9}
+
+/* ---------- header ---------- */
+.head{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.mark{width:38px;height:38px;border:3px solid var(--ink);border-radius:13px 15px 12px 16px;
+  background:var(--gold);box-shadow:3px 3px 0 var(--ink);transform:rotate(-5deg)}
+.mark svg{width:22px;height:22px;fill:var(--ink)}
+.title{font-family:"华文琥珀","STHupo","幼圆","YouYuan","Comic Sans MS","Microsoft YaHei",sans-serif;
+  color:var(--ink);letter-spacing:1.5px;
+  text-shadow:2px 2px 0 var(--hl),4px 4px 0 rgba(36,31,43,.16)}
+.title .thin{color:var(--muted)}
+.sub{color:var(--muted);font-weight:700;letter-spacing:.6px}
+.date{color:var(--ink);background:var(--hl);border:2.5px solid var(--ink);
+  border-radius:9px 12px 8px 11px;padding:2px 11px;display:inline-block;
+  transform:rotate(-1.4deg);box-shadow:3px 3px 0 var(--ink);letter-spacing:.6px}
+.meta{color:var(--muted);letter-spacing:.2px}
+
+/* ---------- columns ---------- */
+.col{background:rgba(255,255,255,.74);border:3px solid var(--ink);
+  border-radius:22px 26px 19px 27px;box-shadow:6px 6px 0 var(--ink);
+  padding:15px 16px 12px}
+.col::before{content:"";position:absolute;left:12px;right:12px;top:7px;height:5px;
+  border-radius:99px;background:var(--accent);opacity:.9}
+.col-head{border-bottom:2.5px dashed rgba(36,31,43,.32);padding-bottom:9px}
+.chip{color:#fff;background:var(--accent);border:2.5px solid var(--ink);border-radius:999px;
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-1.6deg);padding:3px 12px;letter-spacing:1px}
+.col-note{color:var(--muted);font-weight:700}
+
+/* ---------- row ---------- */
+.row{border-bottom:2px dotted rgba(36,31,43,.20);gap:11px}
+.row:last-child{border-bottom:none}
+.rank{width:26px;height:26px;line-height:21px;border:2.5px solid var(--ink);border-radius:50%;
+  background:#fff;color:var(--ink)}
+.row.top1 .rank{background:var(--gold);transform:rotate(-7deg)}
+.row.top2 .rank{background:var(--silver);transform:rotate(5deg)}
+.row.top3 .rank{background:var(--bronze);transform:rotate(-4deg)}
+.name{color:var(--ink);letter-spacing:.2px}
+.name .owner{color:var(--muted);font-weight:400}
+.tag{color:var(--muted);font-weight:700}
+.ldot{width:10px;height:10px;border:2px solid var(--ink)}
+.st{color:var(--ink);font-weight:700}
+.st::before{color:var(--gold);-webkit-text-stroke:1.1px var(--ink)}
+.dl{color:#fff;background:var(--accent);border:2.5px solid var(--ink);border-radius:999px;
+  box-shadow:2px 2px 0 var(--ink);transform:rotate(-1.2deg);padding:1px 9px}
+.dl.na{background:#fff;color:var(--muted-2);box-shadow:none;border-color:rgba(36,31,43,.35)}
+.l2{color:var(--muted)}
+
+/* ---------- footer ---------- */
+.foot{border-top:3px solid var(--ink);color:var(--muted);font-weight:700}

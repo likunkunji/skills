@@ -1,0 +1,82 @@
+/* THEME: manga — 新闻纸黑白网点 + 速度线 + 单一红强调，像漫画单行本的一页。
+   日榜用红（今天的爆点），周榜用墨黑（沉淀的一周），靠明度差区分两栏。
+   只改视觉属性；布局规则一律由 cover-template.html 的骨架层决定。 */
+:root{
+  --paper:#f6f3ec;
+  --ink:#15120f;
+  --text:#1c1815;
+  --muted:#6d6660;
+  --muted-2:#9a938b;
+  --daily:#e0392c;
+  --weekly:#15120f;
+  --monthly:#6d6660;
+  --gold:#e0392c;
+  --silver:#15120f;
+  --bronze:#6d6660;
+}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",Arial,sans-serif;
+  color:var(--text);
+  background:
+    repeating-radial-gradient(circle at 0 0, rgba(21,18,15,.045) 0 1.4px, transparent 1.4px 8px),
+    linear-gradient(178deg,#fbf9f4 0%,var(--paper) 60%,#efece3 100%);
+}
+/* speed lines bursting from the top-right corner, faded so text stays readable */
+.decor{
+  background:
+    repeating-conic-gradient(from 200deg at 100% 0%, rgba(21,18,15,.17) 0deg .45deg, transparent .45deg 2.4deg),
+    repeating-conic-gradient(from 20deg at 0% 100%, rgba(21,18,15,.10) 0deg .5deg, transparent .5deg 3.2deg);
+  -webkit-mask-image:
+    radial-gradient(circle at 100% 0%, #000 0%, rgba(0,0,0,.35) 34%, transparent 58%),
+    radial-gradient(circle at 0% 100%, #000 0%, transparent 46%);
+  mask-image:
+    radial-gradient(circle at 100% 0%, #000 0%, rgba(0,0,0,.35) 34%, transparent 58%),
+    radial-gradient(circle at 0% 100%, #000 0%, transparent 46%);
+}
+
+/* ---------- header ---------- */
+.head{border-bottom:4px double var(--ink);padding-bottom:12px}
+.mark{width:36px;height:36px;border:3px solid var(--ink);border-radius:3px;background:#fff;
+  box-shadow:4px 4px 0 var(--ink)}
+.mark svg{width:21px;height:21px;fill:var(--ink)}
+.title{font-family:"方正姚体","FZYaoti","Microsoft YaHei",sans-serif;color:var(--ink);
+  letter-spacing:3px;text-shadow:3px 3px 0 rgba(224,57,44,.9)}
+.title .thin{color:var(--muted)}
+.sub{color:var(--muted);font-weight:700;letter-spacing:1.2px}
+.date{color:#fff;background:var(--ink);border:2.5px solid var(--ink);border-radius:2px;
+  padding:2px 10px;display:inline-block;box-shadow:3px 3px 0 var(--daily);letter-spacing:1px}
+.meta{color:var(--muted)}
+
+/* ---------- columns ---------- */
+.col{background:#fffdf7;border:3px solid var(--ink);border-radius:3px;padding:14px 15px 11px;
+  box-shadow:inset 0 0 0 1.5px rgba(21,18,15,.28),7px 7px 0 rgba(21,18,15,.92)}
+.col::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 7px,transparent 7px 13px)}
+.col-head{border-bottom:2.5px solid var(--ink);padding-bottom:9px}
+.chip{color:#fff;background:var(--accent);border:2.5px solid var(--ink);border-radius:2px;
+  box-shadow:3px 3px 0 var(--ink);padding:3px 11px;letter-spacing:1.5px;
+  font-family:"方正姚体","FZYaoti","Microsoft YaHei",sans-serif}
+.col-note{color:var(--muted);font-weight:700;letter-spacing:.4px}
+
+/* ---------- row ---------- */
+.row{border-bottom:1.5px solid rgba(21,18,15,.22)}
+.row:last-child{border-bottom:none}
+.rank{color:var(--muted-2)}
+.row.top1 .rank{background:var(--daily);color:#fff;border-radius:2px;line-height:20px;
+  box-shadow:2px 2px 0 var(--ink)}
+.row.top2 .rank{background:var(--ink);color:#fff;border-radius:2px;line-height:20px}
+.row.top3 .rank{background:#fff;color:var(--ink);border:2px solid var(--ink);
+  border-radius:2px;line-height:17px}
+.name{color:var(--ink);letter-spacing:.2px}
+.name .owner{color:var(--muted);font-weight:400}
+.tag{color:var(--muted);font-weight:700}
+.ldot{width:9px;height:9px;border:2px solid var(--ink);background:#fff}
+.st{color:var(--ink);font-weight:700}
+.st::before{color:var(--daily)}
+.dl{color:var(--daily);background:#fff;border:2.5px solid var(--ink);border-radius:2px;
+  box-shadow:2px 2px 0 var(--ink);padding:1px 8px}
+.dl.na{color:var(--muted-2);box-shadow:none;border-color:rgba(21,18,15,.35)}
+.l2{color:var(--muted)}
+
+/* ---------- footer ---------- */
+.foot{border-top:4px double var(--ink);color:var(--muted)}

@@ -1,0 +1,73 @@
+/* THEME: dashboard — 原始深色数据面板外观（GitHub Dark 风）。
+   真实产品后台的观感：柔和渐变光晕、半透明面板、细边框、弥散阴影。
+   只改视觉属性；布局规则一律由 cover-template.html 的骨架层决定。 */
+:root{
+  --bg:#0d1117;
+  --panel:#141a22;
+  --border:#2a323c;
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --muted-2:#6e7681;
+  --daily:#f78166;
+  --weekly:#58a6ff;
+  --monthly:#d2a8ff;
+  --gold:#e3b341;
+  --silver:#adbac7;
+  --bronze:#d18616;
+}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1100px 560px at 8% -12%, rgba(88,166,255,.20), transparent 62%),
+    radial-gradient(980px 520px at 96% -6%, rgba(247,129,102,.18), transparent 64%),
+    radial-gradient(900px 700px at 50% 120%, rgba(63,185,80,.10), transparent 60%),
+    linear-gradient(158deg,#0d1117 0%,#0a0e13 52%,#0d1117 100%);
+}
+
+/* ---------- header ---------- */
+.head{border-bottom:1px solid var(--border)}
+.mark{border-radius:9px;background:linear-gradient(150deg,#2d333b,#1a1f26);
+  border:1px solid #3a424c;box-shadow:0 2px 10px rgba(0,0,0,.45)}
+.mark svg{fill:#e6edf3}
+.title{letter-spacing:.4px}
+.title .thin{color:var(--muted);letter-spacing:2px}
+.sub{color:var(--muted);letter-spacing:.6px}
+.date{color:#c9d1d9;letter-spacing:.5px}
+.meta{color:var(--muted-2);letter-spacing:.3px}
+
+/* ---------- columns ---------- */
+.col{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.30)}
+.col::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent 78%)}
+.col-head{border-bottom:1px dashed rgba(139,148,158,.28)}
+.chip{color:var(--accent);letter-spacing:.8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  background:color-mix(in srgb,var(--accent) 14%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);
+  border-radius:999px}
+.col-note{color:var(--muted-2);letter-spacing:.3px}
+
+/* ---------- row ---------- */
+.row{border-bottom:1px solid rgba(139,148,158,.13)}
+.row:last-child{border-bottom:none}
+.rank{color:var(--muted-2)}
+.row.top1 .rank{color:var(--gold)}
+.row.top2 .rank{color:var(--silver)}
+.row.top3 .rank{color:var(--bronze)}
+.name{letter-spacing:.1px}
+.name .owner{font-weight:400;color:var(--muted)}
+.tag{color:var(--muted)}
+.ldot{background:#8b949e}
+.st{color:#c9d1d9}
+.st::before{color:var(--gold)}
+.dl{color:var(--accent);border-radius:6px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  background:color-mix(in srgb,var(--accent) 13%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.dl.na{color:var(--muted-2);background:transparent;border-color:var(--border);font-weight:600}
+.l2{color:var(--muted)}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--border);color:var(--muted-2);letter-spacing:.3px}
